@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "description": "Canonical four-week psalter of the Liturgy of the Hours (psalm/canticle references only, no text). Transcribed from the hour-by-hour table compiled by Fr. Felix Just, S.J. (catholic-resources.org/LoH/Psalter-Hours.html, last updated 2024-11-13). Intended as the authoritative diff target for the app's generated data/psalter/ skeleton.",
+    "sourceUrl": "https://catholic-resources.org/LoH/Psalter-Hours.html",
+    "transcribedDate": "2026-07-10",
+    "verified": true,
+    "referenceConvention": "Ps N or Ps N:V-V per the source table; the app's CONVENTIONS.md format may need mapping",
+    "notes": [
+      "invitatory: Ps 95 every morning, with Ps 100, Ps 67, or Ps 24 as permitted alternatives.",
+      "officeOfReadings seasonal variants: Sat wk1, Sat wk2, Fri wk4, Sat wk4 differ between Advent/Christmas/Lent/Easter ('advent-christmas-lent-easter') and Ordinary Time ('ordinary-time'), per GILH 130 (Pss 78, 105, 106 reserved for the strong seasons).",
+      "morningPrayer (Lauds) pattern: psalm, OT canticle, psalm.",
+      "eveningPrayer (Vespers) pattern: psalm, psalm, NT canticle. Saturday evening is EP-I of the following Sunday; Sunday evening is EP-II.",
+      "Sunday EP-II NT canticle: Rev 19:1-7, replaced by 1 Pet 2:21-24 in Lent (all four weeks).",
+      "daytimePrayer: one hour with the psalms listed; if praying all three little hours (Terce/Sext/None), the other two use the complementary psalmody series.",
+      "nightPrayer (Compline) has a one-week cycle by day, not a four-week cycle. Saturday Compline follows EP-I of Sunday.",
+      "CAUTION: wk4 Thursday officeOfReadings duplicates wk2 Thursday (Ps 44) in the source table; plausible but worth double-checking against a printed breviary before flipping verified:true on that one day."
+    ]
+  },
+  "invitatory": {
+    "default": "Ps 95",
+    "alternatives": ["Ps 100", "Ps 67", "Ps 24"]
+  },
+  "complementaryPsalmody": {
+    "midmorning": ["Ps 120", "Ps 121", "Ps 122"],
+    "midday": ["Ps 123", "Ps 124", "Ps 125"],
+    "midafternoon": ["Ps 126", "Ps 127", "Ps 128"]
+  },
+  "nightPrayer": {
+    "saturday": { "psalms": ["Ps 4", "Ps 134"], "shortReading": "Deut 6:4-7" },
+    "sunday": { "psalms": ["Ps 91"], "shortReading": "Rev 22:4-5" },
+    "monday": { "psalms": ["Ps 86"], "shortReading": "1 Thess 5:9-10" },
+    "tuesday": { "psalms": ["Ps 143:1-11"], "shortReading": "1 Peter 5:8-9a" },
+    "wednesday": { "psalms": ["Ps 31:2-6", "Ps 130"], "shortReading": "Eph 4:26-27" },
+    "thursday": { "psalms": ["Ps 16"], "shortReading": "1 Thess 5:23" },
+    "friday": { "psalms": ["Ps 88"], "shortReading": "Jer 14:9a" }
+  },
+  "week1": {
+    "sunday": {
+      "officeOfReadings": ["Ps 1", "Ps 2", "Ps 3"],
+      "morningPrayer": { "psalm1": "Ps 63:2-9", "otCanticle": "Dan 3:57-88, 56", "psalm2": "Ps 149" },
+      "daytimePrayer": ["Ps 118:1-9", "Ps 118:10-18", "Ps 118:19-29"],
+      "eveningPrayer1": { "psalm1": "Ps 141:1-9", "psalm2": "Ps 142", "ntCanticle": "Phil 2:6-11" },
+      "eveningPrayer2": { "psalm1": "Ps 110:1-5, 7", "psalm2": "Ps 114", "ntCanticle": "Rev 19:1-7", "ntCanticleLent": "1 Pet 2:21-24" }
+    },
+    "monday": {
+      "officeOfReadings": ["Ps 6", "Ps 9:2-11", "Ps 9:12-21"],
+      "morningPrayer": { "psalm1": "Ps 5:2-10, 12-13", "otCanticle": "1 Chr 29:10-13", "psalm2": "Ps 29" },
+      "daytimePrayer": ["Ps 19:8-15", "Ps 7:2-10", "Ps 7:11-18"],
+      "eveningPrayer": { "psalm1": "Ps 11", "psalm2": "Ps 15", "ntCanticle": "Eph 1:3-10" }
+    },
+    "tuesday": {
+      "officeOfReadings": ["Ps 10:1-11", "Ps 10:12-18", "Ps 12"],
+      "morningPrayer": { "psalm1": "Ps 24", "otCanticle": "Tobit 13:1-8", "psalm2": "Ps 33" },
+      "daytimePrayer": ["Ps 119:1-8", "Ps 13", "Ps 14"],
+      "eveningPrayer": { "psalm1": "Ps 20", "psalm2": "Ps 21:2-8, 14", "ntCanticle": "Rev 4:11; 5:9, 10, 12" }
+    },
+    "wednesday": {
+      "officeOfReadings": ["Ps 18:2-7", "Ps 18:8-20", "Ps 18:21-30"],
+      "morningPrayer": { "psalm1": "Ps 36", "otCanticle": "Judith 16:2-3a, 13-15", "psalm2": "Ps 47" },
+      "daytimePrayer": ["Ps 119:9-16", "Ps 17:1-9a", "Ps 17:9b-15"],
+      "eveningPrayer": { "psalm1": "Ps 27:1-6", "psalm2": "Ps 27:7-14", "ntCanticle": "Col 1:12-20" }
+    },
+    "thursday": {
+      "officeOfReadings": ["Ps 18:31-35", "Ps 18:36-46", "Ps 18:47-51"],
+      "morningPrayer": { "psalm1": "Ps 57", "otCanticle": "Jer 31:10-14", "psalm2": "Ps 48" },
+      "daytimePrayer": ["Ps 119:17-24", "Ps 25:1-11", "Ps 25:12-22"],
+      "eveningPrayer": { "psalm1": "Ps 30", "psalm2": "Ps 32", "ntCanticle": "Rev 11:17-18; 12:10b-12a" }
+    },
+    "friday": {
+      "officeOfReadings": ["Ps 35:1-2, 3c, 9-12", "Ps 35:13-16", "Ps 35:17-19, 22-23, 27-28"],
+      "morningPrayer": { "psalm1": "Ps 51", "otCanticle": "Isa 45:15-25", "psalm2": "Ps 100" },
+      "daytimePrayer": ["Ps 119:25-32", "Ps 26", "Ps 28:1-3, 6-9"],
+      "eveningPrayer": { "psalm1": "Ps 41", "psalm2": "Ps 46", "ntCanticle": "Rev 15:3-4" }
+    },
+    "saturday": {
+      "officeOfReadings": {
+        "advent-christmas-lent-easter": ["Ps 105:1-15", "Ps 105:16-22", "Ps 105:23-45"],
+        "ordinary-time": ["Ps 131", "Ps 132:1-10", "Ps 132:11-18"]
+      },
+      "morningPrayer": { "psalm1": "Ps 119:145-152", "otCanticle": "Exod 15:1-4a, 8-13, 17-18", "psalm2": "Ps 117" },
+      "daytimePrayer": ["Ps 119:33-40", "Ps 34:2-11", "Ps 34:12-23"],
+      "eveningPrayer": "see week1.sunday.eveningPrayer1 (Saturday evening is EP-I of Sunday)"
+    }
+  },
+  "week2": {
+    "sunday": {
+      "officeOfReadings": ["Ps 104:1-12", "Ps 104:13-23", "Ps 104:24-35"],
+      "morningPrayer": { "psalm1": "Ps 118", "otCanticle": "Dan 3:52-57", "psalm2": "Ps 150" },
+      "daytimePrayer": ["Ps 23", "Ps 76:2-7", "Ps 76:8-13"],
+      "eveningPrayer1": { "psalm1": "Ps 119:105-112", "psalm2": "Ps 16", "ntCanticle": "Phil 2:6-11" },
+      "eveningPrayer2": { "psalm1": "Ps 110:1-5, 7", "psalm2": "Ps 115", "ntCanticle": "Rev 19:1-7", "ntCanticleLent": "1 Pet 2:21-24" }
+    },
+    "monday": {
+      "officeOfReadings": ["Ps 31:2-9", "Ps 31:10-17", "Ps 31:20-25"],
+      "morningPrayer": { "psalm1": "Ps 42", "otCanticle": "Sirach 36:1-5, 10-13", "psalm2": "Ps 19:2-7" },
+      "daytimePrayer": ["Ps 119:41-48", "Ps 40:2-9", "Ps 40:10-14, 17-18"],
+      "eveningPrayer": { "psalm1": "Ps 45:2-10", "psalm2": "Ps 45:11-18", "ntCanticle": "Eph 1:3-10" }
+    },
+    "tuesday": {
+      "officeOfReadings": ["Ps 37:1-11", "Ps 37:12-29", "Ps 37:30-40"],
+      "morningPrayer": { "psalm1": "Ps 43", "otCanticle": "Isa 38:10-14, 17-20", "psalm2": "Ps 65" },
+      "daytimePrayer": ["Ps 119:49-56", "Ps 53", "Ps 54:3-6, 8-9"],
+      "eveningPrayer": { "psalm1": "Ps 49:2-13", "psalm2": "Ps 49:14-21", "ntCanticle": "Rev 4:11; 5:9, 10, 12" }
+    },
+    "wednesday": {
+      "officeOfReadings": ["Ps 39:2-7", "Ps 39:8-14", "Ps 52"],
+      "morningPrayer": { "psalm1": "Ps 77", "otCanticle": "1 Sam 2:1-10", "psalm2": "Ps 97" },
+      "daytimePrayer": ["Ps 119:57-64", "Ps 55:2-12", "Ps 55:13-15, 17-24"],
+      "eveningPrayer": { "psalm1": "Ps 62", "psalm2": "Ps 67", "ntCanticle": "Col 1:12-20" }
+    },
+    "thursday": {
+      "officeOfReadings": ["Ps 44:2-9", "Ps 44:10-17", "Ps 44:18-27"],
+      "morningPrayer": { "psalm1": "Ps 80", "otCanticle": "Isa 12:1-6", "psalm2": "Ps 81" },
+      "daytimePrayer": ["Ps 119:65-72", "Ps 56:2-7b, 9-14", "Ps 57"],
+      "eveningPrayer": { "psalm1": "Ps 72:2-11", "psalm2": "Ps 72:12-19", "ntCanticle": "Rev 11:17-18; 12:10b-12a" }
+    },
+    "friday": {
+      "officeOfReadings": ["Ps 38:2-5", "Ps 38:6-13", "Ps 38:14-23"],
+      "morningPrayer": { "psalm1": "Ps 51", "otCanticle": "Hab 3:2-4, 13a, 15-19", "psalm2": "Ps 147:12-20" },
+      "daytimePrayer": ["Ps 119:73-80", "Ps 59:2-5, 10-11, 17-18", "Ps 60"],
+      "eveningPrayer": { "psalm1": "Ps 116:1-9", "psalm2": "Ps 121", "ntCanticle": "Rev 15:3-4" }
+    },
+    "saturday": {
+      "officeOfReadings": {
+        "advent-christmas-lent-easter": ["Ps 106:1-18", "Ps 106:19-33", "Ps 106:34-48"],
+        "ordinary-time": ["Ps 136:1-9", "Ps 136:10-15", "Ps 136:16-26"]
+      },
+      "morningPrayer": { "psalm1": "Ps 92", "otCanticle": "Deut 32:1-12", "psalm2": "Ps 8" },
+      "daytimePrayer": ["Ps 119:81-88", "Ps 61", "Ps 64"],
+      "eveningPrayer": "see week2.sunday.eveningPrayer1"
+    }
+  },
+  "week3": {
+    "sunday": {
+      "officeOfReadings": ["Ps 145:1-9", "Ps 145:10-13a", "Ps 145:13b-21"],
+      "morningPrayer": { "psalm1": "Ps 93", "otCanticle": "Dan 3:57-88, 56", "psalm2": "Ps 148" },
+      "daytimePrayer": ["Ps 118:1-9", "Ps 118:10-18", "Ps 118:19-29"],
+      "eveningPrayer1": { "psalm1": "Ps 113", "psalm2": "Ps 116:10-19", "ntCanticle": "Phil 2:6-11" },
+      "eveningPrayer2": { "psalm1": "Ps 110:1-5, 7", "psalm2": "Ps 111", "ntCanticle": "Rev 19:1-7", "ntCanticleLent": "1 Pet 2:21-24" }
+    },
+    "monday": {
+      "officeOfReadings": ["Ps 50:1-6", "Ps 50:7-15", "Ps 50:16-23"],
+      "morningPrayer": { "psalm1": "Ps 84", "otCanticle": "Isa 2:2-5", "psalm2": "Ps 96" },
+      "daytimePrayer": ["Ps 119:89-96", "Ps 71:1-13", "Ps 71:14-24"],
+      "eveningPrayer": { "psalm1": "Ps 123", "psalm2": "Ps 124", "ntCanticle": "Eph 1:3-10" }
+    },
+    "tuesday": {
+      "officeOfReadings": ["Ps 68:2-11", "Ps 68:12-24", "Ps 68:25-36"],
+      "morningPrayer": { "psalm1": "Ps 85", "otCanticle": "Isa 26:1-4, 7-9, 12", "psalm2": "Ps 67" },
+      "daytimePrayer": ["Ps 119:97-104", "Ps 74:1-12", "Ps 74:13-23"],
+      "eveningPrayer": { "psalm1": "Ps 125", "psalm2": "Ps 131", "ntCanticle": "Rev 4:11; 5:9, 10, 12" }
+    },
+    "wednesday": {
+      "officeOfReadings": ["Ps 89:2-19", "Ps 89:20-30", "Ps 89:31-38"],
+      "morningPrayer": { "psalm1": "Ps 86", "otCanticle": "Isa 33:13-16", "psalm2": "Ps 98" },
+      "daytimePrayer": ["Ps 119:105-112", "Ps 70", "Ps 75"],
+      "eveningPrayer": { "psalm1": "Ps 126", "psalm2": "Ps 127", "ntCanticle": "Col 1:12-20" }
+    },
+    "thursday": {
+      "officeOfReadings": ["Ps 89:39-46", "Ps 89:47-53", "Ps 90"],
+      "morningPrayer": { "psalm1": "Ps 87", "otCanticle": "Isa 40:10-17", "psalm2": "Ps 99" },
+      "daytimePrayer": ["Ps 119:113-120", "Ps 79:1-5, 8-11, 13", "Ps 80"],
+      "eveningPrayer": { "psalm1": "Ps 132:1-10", "psalm2": "Ps 132:11-18", "ntCanticle": "Rev 11:17-18; 12:10b-12a" }
+    },
+    "friday": {
+      "officeOfReadings": ["Ps 69:2-13", "Ps 69:14-22", "Ps 69:30-37"],
+      "morningPrayer": { "psalm1": "Ps 51", "otCanticle": "Jer 14:17-21", "psalm2": "Ps 100" },
+      "daytimePrayer": ["Ps 22:2-12", "Ps 22:13-23", "Ps 22:24-32"],
+      "eveningPrayer": { "psalm1": "Ps 135:1-12", "psalm2": "Ps 135:13-21", "ntCanticle": "Rev 15:3-4" }
+    },
+    "saturday": {
+      "officeOfReadings": ["Ps 107:1-16", "Ps 107:17-32", "Ps 107:33-43"],
+      "morningPrayer": { "psalm1": "Ps 119:145-152", "otCanticle": "Wis 9:1-6, 9-11", "psalm2": "Ps 117" },
+      "daytimePrayer": ["Ps 119:121-128", "Ps 34:2-11", "Ps 34:12-23"],
+      "eveningPrayer": "see week3.sunday.eveningPrayer1"
+    }
+  },
+  "week4": {
+    "sunday": {
+      "officeOfReadings": ["Ps 24", "Ps 66:2-12", "Ps 66:13-20"],
+      "morningPrayer": { "psalm1": "Ps 118", "otCanticle": "Dan 3:52-57", "psalm2": "Ps 150" },
+      "daytimePrayer": ["Ps 23", "Ps 76:2-7", "Ps 76:8-13"],
+      "eveningPrayer1": { "psalm1": "Ps 122", "psalm2": "Ps 130", "ntCanticle": "Phil 2:6-11" },
+      "eveningPrayer2": { "psalm1": "Ps 110:1-5, 7", "psalm2": "Ps 112", "ntCanticle": "Rev 19:1-7", "ntCanticleLent": "1 Pet 2:21-24" }
+    },
+    "monday": {
+      "officeOfReadings": ["Ps 73:1-12", "Ps 73:13-20", "Ps 73:21-28"],
+      "morningPrayer": { "psalm1": "Ps 90", "otCanticle": "Isa 42:10-16", "psalm2": "Ps 135:1-12" },
+      "daytimePrayer": ["Ps 119:129-136", "Ps 82", "Ps 120"],
+      "eveningPrayer": { "psalm1": "Ps 136:1-9", "psalm2": "Ps 136:10-26", "ntCanticle": "Eph 1:3-10" }
+    },
+    "tuesday": {
+      "officeOfReadings": ["Ps 102:2-12", "Ps 102:13-23", "Ps 102:24-29"],
+      "morningPrayer": { "psalm1": "Ps 101", "otCanticle": "Dan 3:26, 27, 29, 34-41", "psalm2": "Ps 144:1-10" },
+      "daytimePrayer": ["Ps 119:137-144", "Ps 88:2-8", "Ps 88:9-19"],
+      "eveningPrayer": { "psalm1": "Ps 137:1-6", "psalm2": "Ps 138", "ntCanticle": "Rev 4:11; 5:9, 10, 12" }
+    },
+    "wednesday": {
+      "officeOfReadings": ["Ps 103:1-7", "Ps 103:8-16", "Ps 103:17-22"],
+      "morningPrayer": { "psalm1": "Ps 108", "otCanticle": "Isa 61:10-62:5", "psalm2": "Ps 146" },
+      "daytimePrayer": ["Ps 119:145-152", "Ps 94:1-11", "Ps 94:12-23"],
+      "eveningPrayer": { "psalm1": "Ps 139:1-12", "psalm2": "Ps 139:13-18, 23-24", "ntCanticle": "Col 1:12-20" }
+    },
+    "thursday": {
+      "officeOfReadings": ["Ps 44:2-9", "Ps 44:10-17", "Ps 44:18-27"],
+      "morningPrayer": { "psalm1": "Ps 143:1-11", "otCanticle": "Isa 66:10-14a", "psalm2": "Ps 147:1-11" },
+      "daytimePrayer": ["Ps 119:153-160", "Ps 128", "Ps 129"],
+      "eveningPrayer": { "psalm1": "Ps 144:1-8", "psalm2": "Ps 144:9-15", "ntCanticle": "Rev 11:17-18; 12:10b-12a" }
+    },
+    "friday": {
+      "officeOfReadings": {
+        "advent-christmas-lent-easter": ["Ps 78:1-16", "Ps 78:17-31", "Ps 78:32-39"],
+        "ordinary-time": ["Ps 55:2-10a", "Ps 55:10b-15", "Ps 55:17-24"]
+      },
+      "morningPrayer": { "psalm1": "Ps 51", "otCanticle": "Tobit 13:8-11, 13-15", "psalm2": "Ps 147:12-20" },
+      "daytimePrayer": ["Ps 119:161-168", "Ps 133", "Ps 140:2-9, 13-14"],
+      "eveningPrayer": { "psalm1": "Ps 145:1-13a", "psalm2": "Ps 145:13b-21", "ntCanticle": "Rev 15:3-4" }
+    },
+    "saturday": {
+      "officeOfReadings": {
+        "advent-christmas-lent-easter": ["Ps 78:40-51", "Ps 78:52-64", "Ps 78:65-72"],
+        "ordinary-time": ["Ps 50:1-6", "Ps 50:7-15", "Ps 50:16-23"]
+      },
+      "morningPrayer": { "psalm1": "Ps 92", "otCanticle": "Ezek 36:24-28", "psalm2": "Ps 8" },
+      "daytimePrayer": ["Ps 119:169-176", "Ps 45:2-10", "Ps 45:11-18"],
+      "eveningPrayer": "see week4.sunday.eveningPrayer1"
+    }
+  }
+}
