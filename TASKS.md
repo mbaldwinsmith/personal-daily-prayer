@@ -372,12 +372,28 @@ Dimittis remain the Hours' Gospel canticles.
 
 ## Phase 12 — Launch MVP
 
-- [ ] MVP scope checkpoint: Phases 0-6 plus Phase 10 (skeleton, fixed canticles, full
+- [x] MVP scope checkpoint: Phases 0-6 plus Phase 10 (skeleton, fixed canticles, full
       psalm text, basic UI) constitute a genuinely usable daily prayer rule even before
-      Office of Readings and Propers are complete — confirm this is an acceptable v1 scope
-- [ ] Deploy to GitHub Pages
-- [ ] Dogfood: use it for actual daily prayer for a period, log gaps/errors as issues
-- [ ] Iterate on Phases 7-9 post-launch as ongoing content work
+      Office of Readings and Propers are complete — confirm this is an acceptable v1 scope —
+      superseded in practice: Phases 7-9 and 11 are also complete (Office of Readings for
+      both years/all seasons, a representative set of Proper overrides, the antiphon-scope
+      decision, and full offline/PWA support), so the shipped app already exceeds this
+      original minimum bar
+- [x] Deploy to GitHub Pages — `.github/workflows/deploy.yml` runs on every push to `main`
+      and has completed successfully for every merge so far, including this phase's own
+      commit (confirmed via the Actions API); the repo is public with Pages enabled and
+      `homepage` set to `https://mbaldwinsmith.github.io/os-ordinariate-daily-prayer/`.
+      Not independently browser-verified from this session, though - this sandbox's
+      outbound network policy blocks `*.github.io` generally (confirmed via the proxy's own
+      status log, unrelated to this repo), so a human visit to confirm the live site
+      actually loads is worth doing before calling this fully closed
+- [ ] Dogfood: use it for actual daily prayer for a period, log gaps/errors as issues — this
+      one is inherently a human task, not something to check off from a coding session;
+      genuinely ongoing
+- [ ] Iterate on Phases 7-9 post-launch as ongoing content work — also genuinely ongoing,
+      not a one-time task; see SOURCES.md for the specific content gaps already tracked
+      (remaining solemnities/memorials, patristic second readings, antiphons if the scope
+      decision in Phase 9 is ever revisited)
 
 ---
 
