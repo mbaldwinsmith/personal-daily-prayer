@@ -5,7 +5,7 @@
   --header-rule: rgba(123, 30, 43, .22); --hover-shadow: rgba(123, 30, 43, .12); --card-shadow: rgba(67, 44, 35, .06);
   --tabs-bg: rgba(255, 253, 248, .94); --tint-a: #f4eee4; --tint-b: #fbf5eb;
   --warn-border: #b38a43; --warn-bg: #f3ead6; --warn-text: #66532f;
-  font-family: Georgia, 'Times New Roman', serif; font-size: 18px; color: var(--ink); background: var(--paper);
+  font-family: Garamond, Baskerville, 'Times New Roman', Georgia, serif; font-size: 18px; color: var(--ink); background: var(--paper);
   font-synthesis: none;
 }
 :root[data-theme='dark'] {
