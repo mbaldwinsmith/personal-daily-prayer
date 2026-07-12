@@ -1,0 +1,25 @@
+{
+  "key": "4thSundayOfAdvent",
+  "verified": false,
+  "name": "4th Sunday of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Rom 13:11-12",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "1 Thes 3:12-13",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Phil 4:4-5",
+        "verified": false
+      }
+    }
+  }
+}

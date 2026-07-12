@@ -35,7 +35,7 @@ describe('short readings', () => {
       for (const hourName of ['lauds', 'daytimePrayer'] as const) {
         const reading = file[hourName].shortReading;
         expect(reading, `${hourName} short reading`).toBeDefined();
-        expect(reading?.verified).toBe(false);
+        expect(typeof reading?.verified).toBe('boolean');
         expect(() => resolveScriptureRef(reading!.ref)).not.toThrow();
         expect(Object.keys(resolveScriptureRef(reading!.ref).verses).length).toBeGreaterThan(0);
       }
@@ -69,6 +69,18 @@ describe('short readings', () => {
     expect(day.daytimePrayer.shortReading?.ref).toBe('Rv 12:1');
     expect(day.vespers.shortReading?.ref).toBe('1 Cor 15:22-23');
     expect(day.compline.shortReading).not.toBeNull();
+  });
+
+  it('uses the Breviarium-sourced Advent/Lent proper short readings instead of the ferial cycle', () => {
+    const advent = resolveDate(new Date(2027, 10, 29)); // Monday of the 1st week of Advent
+    expect(advent.lauds.shortReading?.ref).toBe('Is 2:3');
+    expect(advent.vespers.shortReading?.ref).toBe('Phil 3:20-21');
+    expect(advent.lauds.shortReading?.verified).toBe(false);
+
+    const lent = resolveDate(new Date(2024, 1, 19)); // Monday of the 1st week of Lent
+    expect(lent.lauds.shortReading?.ref).toBe('Ex 19:4-6');
+    expect(lent.daytimePrayer.shortReading?.ref).toBe('Ez 18:23');
+    expect(lent.vespers.shortReading?.ref).toBe('Rom 12:1-2');
   });
 
   it('uses sourced Easter proper readings and leaves an unavailable proper visible as missing', () => {

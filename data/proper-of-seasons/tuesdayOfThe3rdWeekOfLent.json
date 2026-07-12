@@ -1,0 +1,25 @@
+{
+  "key": "tuesdayOfThe3rdWeekOfLent",
+  "verified": false,
+  "name": "Tuesday of the 3rd week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Jl 2:12-13",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Jer 3:25",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Jas 2:14, 17, 18",
+        "verified": false
+      }
+    }
+  }
+}

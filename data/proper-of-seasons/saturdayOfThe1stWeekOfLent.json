@@ -1,0 +1,19 @@
+{
+  "key": "saturdayOfThe1stWeekOfLent",
+  "verified": false,
+  "name": "Saturday of the 1st week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 1:16-18",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Is 44:21-22",
+        "verified": false
+      }
+    }
+  }
+}

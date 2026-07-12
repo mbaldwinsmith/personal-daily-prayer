@@ -1,0 +1,19 @@
+{
+  "key": "mondayOfThe2ndWeekOfAdvent",
+  "verified": false,
+  "name": "Monday of the 2nd week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 2:3",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Phil 3:20-21",
+        "verified": false
+      }
+    }
+  }
+}

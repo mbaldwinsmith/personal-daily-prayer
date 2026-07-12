@@ -1,0 +1,25 @@
+{
+  "key": "wednesdayOfThe3rdWeekOfLent",
+  "verified": false,
+  "name": "Wednesday of the 3rd week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Dt 7:6, 8-9",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Zec 1:3-4",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Phil 2:12-15",
+        "verified": false
+      }
+    }
+  }
+}

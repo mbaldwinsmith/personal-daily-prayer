@@ -1,0 +1,25 @@
+{
+  "key": "2ndSundayOfLent",
+  "verified": false,
+  "name": "2nd Sunday of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Neh 8:9, 10",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Is 30:15, 18",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Cor 9:24-25",
+        "verified": false
+      }
+    }
+  }
+}
