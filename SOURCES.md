@@ -404,6 +404,111 @@ retained or displayed.
   in actual practice). Left uninvestigated rather than guessed at; `firstVespers` citations
   are untouched by this pass.
 
+### Cross-check witness: Breviarium
+
+- **What it is**: [`Breviarium-app/breviarium--core`](https://github.com/Breviarium-app/breviarium--core),
+  a Spanish-language open-source Liturgy of the Hours library (`npm` package `breviarium`).
+  Its per-hour data files (`databases/all_laudes.json`, `all_tertia.json`, `all_sexta.json`,
+  `all_nona.json`, `all_vesperae.json`) each carry a `lectura_biblica_cita`/`lectura_biblica`
+  numeric-ID pair per day that resolves through `databases/es/commons/lectura_breve_citas.json`
+  / `lectura_breve_textos.json` - confirmed by cross-referencing IDs (e.g. `all_laudes.json`'s
+  `advent_1_friday` cita `175` → `lectura_breve_citas.json` id 175 = "Jr 30, 21-22"; `all_vesperae.json`'s
+  `advent_1_friday` cita `3464` exists only in `lectura_breve_citas.json`, not in the separate
+  `lecturas_referencia.json` table used for longer Mass-style readings). So Lauds, Terce, Sext,
+  None, and Vespers all genuinely draw their one reading from a dedicated short-reading table,
+  despite the generic field name. `databases/all_officium.json` (Office of Readings) correctly
+  uses a different two-reading structure instead (`lectura_biblica_*` + `lectura_patristica_*`),
+  and there is no Compline/Completorium file in the repo at all.
+- **License**: `LICENSE` file is Apache License 2.0 (copyright 2025 Miguel Martínez); GitHub's
+  own license detector reports "Other/NOASSERTION" only because the file contains the short
+  Apache 2.0 notice text rather than the full canonical license body, not because the terms are
+  actually ambiguous. The `NOTICE` file requests attribution: "Based on 'Breviarium' by Miguel
+  Martínez (miguelms.es)" for derivative use. The README's license badge says MIT, which appears
+  to just be stale/incorrect - the LICENSE file governs.
+- **Scope caveat**: the license covers the code/repository; the `databases/` directory also
+  bundles actual translated liturgical prose (`lectura_breve_textos.json`, `salmos_textos.json`,
+  `himnos.json`, etc.), almost certainly official Spanish Episcopal Conference translations,
+  whose rights Miguel Martínez may not be positioned to relicense independent of his own repo
+  license. That risk doesn't attach to citation IDs, though: only the `lectura_breve_citas.json`
+  chapter/verse citations (not the `_textos` prose) would be used here, matching this project's
+  existing "citations only, never source prose" convention used throughout this file.
+- **Cross-check performed**: `scripts/verify-short-readings-breviarium.mjs` fetches Breviarium's
+  `all_laudes.json`/`all_sexta.json`/`all_vesperae.json` (Daytime Prayer is compared against
+  Sext specifically, matching this app's existing `divineoffice.org` "dp2" sourcing), resolves
+  each day's citation ID through `lectura_breve_citas.json`, converts the Spanish (CEE-style)
+  book abbreviations and punctuation to this project's citation convention, and compares against
+  the existing `data/psalter/week{1-4}/<day>.json` `shortReading.ref` values. Only
+  `ordinary_time_*` entries are used as witnesses (see the important caveat below); each
+  comparison is corroborated by 5-8 independent Ordinary Time weeks that all cycle back to the
+  same psalter week (via `romcal`, cross-validated across 2024-2029 so only stable
+  season/week/day → psalter-week mappings are trusted). A citation is only marked `verified: true`
+  if every witness agrees with each other **and** exactly matches the existing local citation -
+  no value is ever invented or overwritten, only confirmed.
+- **Result**: of 84 ferial short readings compared (Lauds/Daytime Prayer/Vespers across the four
+  psalter weeks), 42 were confirmed and flipped to `"verified": true`. 34 remain `"verified":
+  false` because Breviarium's citation, while clearly the same underlying reading,
+  covers a narrower verse range than this app's existing citation - almost always Breviarium's
+  range is a strict subset of the local one (e.g. local `Rom 8:35-39` vs. Breviarium `Rom 8:35, 37`;
+  local `1 Pt 5:5-11` vs. Breviarium `1 Pt 5:5-7`). This is a consistent enough pattern across
+  independent cases that it looks like a real difference between how the `rosangmin-code`/
+  `divineoffice.org` source and the Spanish CEE breviary delimit the same reading, not noise -
+  worth a closer look before deciding which range is authoritative, but deliberately left
+  unverified rather than guessed at. A handful of remaining Saturday-Vespers slots have no local
+  `shortReading` to compare (correct: Saturday's own second Vespers is superseded by Sunday's
+  First Vespers in the real office). One citation (`1 Cor 1:7-9`) is marked `(cfr.)` in the
+  source - an explicit "approximate, not exact" flag - and is skipped rather than compared, per
+  the parsing rule below.
+- **Parsing note**: `scripts/breviarium.mjs` (shared by this script and the Advent/Lent
+  generator below) rejects any citation containing `(cfr.)`/`(Cfr)` outright rather than
+  attempting to parse it - that annotation is the source's own signal that the reference is a
+  paraphrase, not a word-for-word citation, so resolving it against this app's DRC text would
+  misrepresent it.
+- **Important caveat discovered along the way, now acted on (see below)**: Advent and Lent turn
+  out to have their own *proper* short readings in the real Liturgy of the Hours, genuinely
+  different from the Ordinary Time ferial cycle this app's `data/psalter/week{N}` files encode -
+  confirmed empirically (Advent/Lent/Ordinary-Time witnesses for the same nominal
+  psalter-week+day routinely disagreed, and it was specifically the `ordinary_time` witness that
+  matched this app's existing citations). The script logs all 168 Advent/Lent citations it
+  found (to stdout only, not written anywhere by this script) as a lead for a proper-of-seasons short-
+  reading phase, distinct from and complementary to this ferial cross-check.
+
+### Advent/Lent proper short readings (acted on the caveat above)
+
+- **Generated by**: `scripts/generate-advent-lent-short-readings.mjs` → 56 new
+  `data/proper-of-seasons/<celebrationKey>.json` files, keyed by romcal's own stable
+  `${day}OfThe${N}WeekOf{Advent,Lent}` / `${N}SundayOf{Advent,Lent}` celebration keys (the same
+  lookup `src/proper.ts` already uses for every other proper-of-seasons entry - no code changes
+  were needed). Each file overrides only `hours.<hour>.shortReading`, with no `psalmody` key, so
+  `src/office.ts` continues falling back to the ferial four-week skeleton's psalms/canticles
+  unchanged - only the short reading differs from the ferial cycle.
+- **Coverage**: Advent weeks 1-3 (all 7 days) plus all 4 Advent Sundays; Lent weeks 1-5 (all 7
+  days). 56 files total. Confirmed picked up correctly at runtime by `resolveDay` (see
+  `src/shortReadings.test.ts`), not just schema-valid in isolation.
+- **Deliberately not covered - Dec 17-24 (the O Antiphon stretch)**: the version of `romcal`
+  this app depends on assigns those 8 days an ordinary week-based celebration key (e.g.
+  `wednesdayOfThe4thWeekOfAdvent`) that is **not stable year to year** - which week number Dec
+  17-24 falls under shifts depending on where Christmas lands in a given year (confirmed by
+  diffing 2026 vs. 2027: Dec 22 was `tuesdayOfThe4thWeekOfAdvent` in one year and
+  `wednesdayOfThe4thWeekOfAdvent` in the other). Breviarium, by contrast, models these as fixed
+  dates (`advent_december_17`..`advent_december_24`) independent of week number. Mapping
+  Breviarium's date-keyed citations onto romcal's unstable week-based key would silently
+  mis-assign them in some years, so this stretch is left for a future date-based (not
+  celebrationKey-based) resolution mechanism - the same way `src/oAntiphon.ts` already resolves
+  the O Antiphons themselves by date rather than by key.
+- **Deliberately omits `vespers` on Saturday files**: in this app, Advent/Lent Saturdays always
+  resolve their Vespers as First Vespers of the following Sunday
+  (`src/office.ts`'s `saturdayBeginsSunday`), which reads the Sunday proper's
+  `hours.firstVespers`, not the Saturday file's own `hours.vespers` - so a Saturday `vespers`
+  entry would be dead data. Sunday's own First Vespers isn't populated either: Breviarium's
+  Saturday-keyed entry is Saturday's own Vespers, not necessarily the same text as Sunday's
+  First Vespers, and conflating the two without a way to verify that risks a wrong assignment -
+  left for future work, same as the ferial First Vespers gap noted above.
+- **Verification status**: every entry is `"verified": false` - single-sourced from Breviarium
+  with no second independent witness the way the ferial cross-check had 5-8 corroborating
+  Ordinary Time cycles per slot (Advent/Lent each occur once a year, so there's no equivalent
+  repetition to cross-validate against within the source itself). Same standing as this app's
+  other single-page-sourced short readings.
+
 ## Prayer Book prayers and intercessions
 
 - **Primary text**: *The Book of Common Prayer* (1662), cross-checked against the

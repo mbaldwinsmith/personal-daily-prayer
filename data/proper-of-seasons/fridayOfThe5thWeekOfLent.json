@@ -1,0 +1,25 @@
+{
+  "key": "fridayOfThe5thWeekOfLent",
+  "verified": false,
+  "name": "Friday of the 5th week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 52:13-15",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Is 53:4-5",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Pt 2:21-24",
+        "verified": false
+      }
+    }
+  }
+}

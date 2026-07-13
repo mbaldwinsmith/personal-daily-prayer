@@ -1,0 +1,25 @@
+{
+  "key": "5thSundayOfLent",
+  "verified": false,
+  "name": "5th Sunday of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Lv 23:4-7",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "1 Pt 4:13-14",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Acts 13:26-30",
+        "verified": false
+      }
+    }
+  }
+}

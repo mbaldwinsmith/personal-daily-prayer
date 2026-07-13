@@ -1,0 +1,25 @@
+{
+  "key": "mondayOfThe3rdWeekOfLent",
+  "verified": false,
+  "name": "Monday of the 3rd week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Ex 19:4-6",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Ez 18:23",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Jn 1:1-2",
+        "verified": false
+      }
+    }
+  }
+}

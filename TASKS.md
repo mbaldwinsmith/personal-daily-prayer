@@ -589,14 +589,38 @@ fully is a much larger transcription job than the psalter, so sequence it:
 - [x] If no single complete structural source can be found, fall back to
       incremental verification (Ordinary Time first, seasons after), keeping
       per-file `verified` flags honest about exactly which days are checked
-- [~] Revisit short readings (the Phase 10 follow-up) against the same source
-      once found — Fr. Just's site has no equivalent short-reading table, so a
-      second independent structural source (the Breviarium open-source library)
-      was used instead. 41 of 78 comparable ferial Lauds/Daytime Prayer/Vespers
-      citations matched exactly and are now `"verified": true`; the other 33
-      disagree on exact verse boundaries and are left unchanged pending a future
-      human check against the printed edition (same category of open task as
-      Phase 13.6). See `SOURCES.md` for the full breakdown.
+- [x] Revisit short readings (the Phase 10 follow-up) against the same source
+      once found — the canonical psalter file already provides verified Compline
+      short readings as a starting point
+      - Fr. Just's table itself turned out to have no short readings beyond
+        Compline (checked directly against the live page). Cross-checked
+        against the Breviarium open-source library instead (see SOURCES.md,
+        "Cross-check witness: Breviarium") via `scripts/verify-short-readings-breviarium.mjs`:
+        42 of 84 ferial Lauds/Daytime-Prayer/Vespers short readings confirmed
+        and flipped to `"verified": true`; 34 left unverified pending human
+        review of a systematic narrower-range discrepancy; 8 skipped (no
+        local data, disagreeing witnesses, or a source citation explicitly
+        marked "(cfr.)"/approximate)
+      - [ ] Follow-up: review the 34 flagged mismatches (script output) to
+            decide whether the wider local ranges or Breviarium's narrower
+            ones are correct
+      - [x] Follow-up: Advent and Lent turn out to need their own proper short
+            readings, distinct from the ferial cycle this app currently
+            reuses for those seasons. `scripts/generate-advent-lent-short-readings.mjs`
+            now writes 56 `data/proper-of-seasons/*.json` files (Advent weeks
+            1-3 + all 4 Sundays; Lent weeks 1-5, all keyed by romcal's stable
+            celebration keys, no code changes needed) - see SOURCES.md,
+            "Advent/Lent proper short readings"
+            - [ ] Follow-up: the Dec 17-24 O-Antiphon stretch is still
+                  uncovered - romcal's celebration key for those days isn't
+                  stable year to year, so a date-based (not celebrationKey-
+                  based) resolution mechanism is needed first, the same way
+                  `src/oAntiphon.ts` already resolves the O Antiphons
+                  themselves by date
+            - [ ] Follow-up: Sunday First Vespers and Saturday's own Vespers
+                  for Advent/Lent remain unpopulated - Breviarium's
+                  Saturday-keyed Vespers entry isn't verified to be the same
+                  text as Sunday's First Vespers, so it wasn't assumed
 
 Phase 14 incremental pass: Fr. Felix Just's page-referenced table establishes the
 one-year cycle printed in the current four-volume Liturgy of the Hours; the former

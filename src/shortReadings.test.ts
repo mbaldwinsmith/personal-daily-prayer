@@ -86,6 +86,18 @@ describe('short readings', () => {
     expect(day.compline.shortReading).not.toBeNull();
   });
 
+  it('uses the Breviarium-sourced Advent/Lent proper short readings instead of the ferial cycle', () => {
+    const advent = resolveDate(new Date(2027, 10, 29)); // Monday of the 1st week of Advent
+    expect(advent.lauds.shortReading?.ref).toBe('Is 2:3');
+    expect(advent.vespers.shortReading?.ref).toBe('Phil 3:20-21');
+    expect(advent.lauds.shortReading?.verified).toBe(false);
+
+    const lent = resolveDate(new Date(2024, 1, 19)); // Monday of the 1st week of Lent
+    expect(lent.lauds.shortReading?.ref).toBe('Ex 19:4-6');
+    expect(lent.daytimePrayer.shortReading?.ref).toBe('Ez 18:23');
+    expect(lent.vespers.shortReading?.ref).toBe('Rom 12:1-2');
+  });
+
   it('uses sourced Easter proper readings and leaves an unavailable proper visible as missing', () => {
     const day = resolveDate(new Date(2024, 2, 31));
     expect(day.lauds.shortReading?.ref).toBe('Acts 10:40-43');

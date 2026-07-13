@@ -1,0 +1,25 @@
+{
+  "key": "wednesdayOfThe2ndWeekOfAdvent",
+  "verified": false,
+  "name": "Wednesday of the 2nd week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 7:14-15",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Is 12:2",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Cor 4:5",
+        "verified": false
+      }
+    }
+  }
+}

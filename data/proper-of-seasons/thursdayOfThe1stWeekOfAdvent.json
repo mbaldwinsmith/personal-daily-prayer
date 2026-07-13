@@ -1,0 +1,25 @@
+{
+  "key": "thursdayOfThe1stWeekOfAdvent",
+  "verified": false,
+  "name": "Thursday of the 1st week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 45:8",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Hg 2:6, 9",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Jas 5:7-8, 9",
+        "verified": false
+      }
+    }
+  }
+}

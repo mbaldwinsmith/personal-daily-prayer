@@ -1,0 +1,19 @@
+{
+  "key": "tuesdayOfThe2ndWeekOfAdvent",
+  "verified": false,
+  "name": "Tuesday of the 2nd week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Gn 49:10",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Jer 23:6",
+        "verified": false
+      }
+    }
+  }
+}

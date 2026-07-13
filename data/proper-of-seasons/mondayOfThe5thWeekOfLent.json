@@ -1,0 +1,25 @@
+{
+  "key": "mondayOfThe5thWeekOfLent",
+  "verified": false,
+  "name": "Monday of the 5th week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Jer 11:19-20",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Jer 18:20",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Rom 5:8-9",
+        "verified": false
+      }
+    }
+  }
+}

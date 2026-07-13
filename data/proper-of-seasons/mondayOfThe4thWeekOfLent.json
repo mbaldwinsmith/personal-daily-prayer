@@ -1,0 +1,25 @@
+{
+  "key": "mondayOfThe4thWeekOfLent",
+  "verified": false,
+  "name": "Monday of the 4th week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Ex 19:4-6",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Ez 18:23",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Rom 12:1-2",
+        "verified": false
+      }
+    }
+  }
+}

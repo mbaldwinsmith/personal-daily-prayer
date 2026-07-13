@@ -1,0 +1,25 @@
+{
+  "key": "tuesdayOfThe5thWeekOfLent",
+  "verified": false,
+  "name": "Tuesday of the 5th week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Zec 12:10-11",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "1 Cor 1:22-24",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Cor 1:27-30",
+        "verified": false
+      }
+    }
+  }
+}

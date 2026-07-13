@@ -1,0 +1,19 @@
+{
+  "key": "saturdayOfThe1stWeekOfAdvent",
+  "verified": false,
+  "name": "Saturday of the 1st week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 11:1-3",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Is 4:3",
+        "verified": false
+      }
+    }
+  }
+}

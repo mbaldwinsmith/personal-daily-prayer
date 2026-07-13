@@ -1,0 +1,19 @@
+{
+  "key": "fridayOfThe2ndWeekOfLent",
+  "verified": false,
+  "name": "Friday of the 2nd week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 53:11-12",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "Jas 5:16, 19-20",
+        "verified": false
+      }
+    }
+  }
+}

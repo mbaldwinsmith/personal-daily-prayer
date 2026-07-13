@@ -1,0 +1,25 @@
+{
+  "key": "fridayOfThe3rdWeekOfAdvent",
+  "verified": false,
+  "name": "Friday of the 3rd week of Advent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Jer 30:21-22",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Jer 30:18",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "2 Pt 3:8-9",
+        "verified": false
+      }
+    }
+  }
+}

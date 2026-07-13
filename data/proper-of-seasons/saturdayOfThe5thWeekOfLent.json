@@ -1,0 +1,19 @@
+{
+  "key": "saturdayOfThe5thWeekOfLent",
+  "verified": false,
+  "name": "Saturday of the 5th week of Lent",
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 65:1-3",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "1 Jn 2:1-2",
+        "verified": false
+      }
+    }
+  }
+}
