@@ -1,13 +1,13 @@
 // Cache-first service worker. All content is static/bundled at build time,
 // so once an asset is cached it is served from cache and only re-fetched
 // on a cache-name bump (see CACHE_NAME below).
-const CACHE_NAME = 'ordinariate-daily-prayer-v3';
+const CACHE_NAME = 'ordinariate-daily-prayer-v4';
 
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icons/icon.svg',
+  './icons/favicon-32.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-maskable-512.png',
