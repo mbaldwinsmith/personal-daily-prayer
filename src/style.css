@@ -124,8 +124,6 @@ a:hover { color: var(--accent-text); }
 /* ---- Header ---------------------------------------------------------------- */
 .site-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding: 1.7rem 0 1.1rem; border-bottom: 1px solid var(--header-rule); }
 .header-actions { display: flex; align-items: center; gap: .45rem; }
-.prayer-book-toggle { display: flex; align-items: center; justify-content: flex-end; gap: .45rem; padding: .7rem 0 0; color: var(--muted); font: 600 .7rem var(--serif-body); letter-spacing: .12em; text-transform: uppercase; }
-.prayer-book-toggle input { accent-color: var(--brand); width: 1rem; height: 1rem; }
 .site-kicker { margin: 0 0 .2rem; color: var(--brand); font: 600 .66rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
 .eyebrow { margin: 0 0 .15rem; color: var(--accent-text); font: 600 .7rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; }
 h1 { margin: 0; color: var(--brand); font-size: clamp(1.7rem, 6vw, 2.2rem); line-height: 1; letter-spacing: .005em; }
@@ -185,15 +183,13 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: poin
 .antiphon p { font-family: var(--serif-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; text-align: center; }
 .antiphon .eyebrow { font-style: normal; font-family: var(--serif-body); }
 .gospel-canticle { background: var(--tint-b); }
-.prayer-book { background: var(--accent-soft); }
 
 /* ---- Verses ---------------------------------------------------------------- */
 .verses { display: flex; flex-direction: column; gap: .72rem; margin-top: .55rem; }
 .verses p { position: relative; margin: 0; padding-left: 1.9rem; line-height: 1.78; font-size: var(--read-size); text-wrap: pretty; }
 .verse-number { position: absolute; left: 0; top: .4em; color: var(--accent-text); font: 600 .62rem var(--serif-body); letter-spacing: .04em; }
 
-/* ---- Prayer Book & Litanies (shared devotional-item rendering) ------------- */
-.supplement-note { color: var(--muted); font-size: .8rem; font-style: italic; }
+/* ---- Litanies (shared devotional-item rendering) ---------------------------- */
 .devotional-item + .devotional-item { margin-top: 1.35rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
 .devotional-item h4 { margin: 0 0 .5rem; color: var(--accent-text); font-size: 1.15rem; }
 .devotional-item p { line-height: 1.72; font-size: var(--read-size); text-wrap: pretty; }
@@ -219,7 +215,6 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
    =========================================================================== */
 :root[data-focus] { --read-size: 1.22rem; }
 :root[data-focus] .site-header,
-:root[data-focus] .prayer-book-toggle,
 :root[data-focus] .date-controls,
 :root[data-focus] .week-nav,
 :root[data-focus] .day-heading,
