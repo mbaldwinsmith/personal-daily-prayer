@@ -153,7 +153,7 @@ function renderImpl(date: Date): void {
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
   const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${view === 'office' && key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
-  const litaniesTab = `<button role="tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel">Litanies</button>`;
+  const litaniesTab = `<button role="tab" class="litanies-tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel" aria-label="Litanies and devotions" title="Litanies and devotions">🙏</button>`;
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
        <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day, officeDay.dayOfWeek)}</div>`
@@ -181,7 +181,7 @@ function renderImpl(date: Date): void {
       </div></header>
     <main>
       ${officeControls}
-      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer and litanies">${hourTabs}${litaniesTab}</nav>
+      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer and litanies"><div class="hour-tabs-grid">${hourTabs}</div>${litaniesTab}</nav>
       ${view === 'office' && focusMode ? `<div class="focus-bar">
         <button id="focus-prev" class="arrow-button" aria-label="Previous hour">←</button>
         <div class="focus-title"><p class="eyebrow">The Daily Office</p><strong>${activeLabel}</strong></div>
